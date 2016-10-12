@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta name="DC.creator" content="Hofstaete Content Management System - http://www.hofstaete.nl - v1.0">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-Frame-Options" content="deny">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+
+  <title>Adviseursite van Test TP</title>
+	<bade href="http://adviseur.mijngoudse.nl.ontwikkel.test/">
+
+  <!-- Hofstaete -->
+  <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/hs/system/adviseursite/styles/reset.css?t=53">
+  <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/hs/system/adviseursite/styles/typography.css?t=53">
+  <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/hs/system/adviseursite/styles/screen.css?t=53">
+  <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/hs/system/adviseursite/styles/theme.css?t=53">
+
+  <!--[if IE 9]>
+    <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/hs/system/adviseursite/styles/ie9.css?t=53">
+  <![endif]-->  
+
+  <!-- Site -->
+  <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/site/system/styles/theme.css?t=53">
+
+
+<!-- Nieuwe CSS -->
+
+<link rel="stylesheet" href="../Square-Grid-master/demo/css/normalize.css">
+<link rel="stylesheet" href="../Square-Grid-master/dist/squaregrid.css">
+<link rel="stylesheet" href="../Square-Grid-master/demo/css/main.css">
+
+<style type="text/css">
+	.layout__content.layout__content--dashboard {
+		max-width: 1600px;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	.menu {
+    /*http://codepen.io/anon/pen/YyLqVB?editors=110*/
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+	}
+	.menu__item {
+		flex: 0 1 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+    padding: 0;
+    height: auto;
+	}
+  .menu__item:hover:before {
+      opacity:1;
+  }
+	.menu--choose-type__item {
+    flex: 0 1 100%;
+    align-self: auto;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 0 1em 0;
+    margin-bottom: 2em;
+    height: auto;
+    border-bottom: 1px solid #979797;
+    font-weight: 300;
+    position: relative;
+	}
+  .menu--choose-type__item a {
+    text-decoration: none;
+    color: #3c3e3f;
+  }
+	.menu__label {
+    padding: 1em;
+    font-size: 15px;
+    font-weight: 400;
+	}
+	.menu--choose-type__label {
+    margin: 0;
+    padding-top: 1em;
+    text-decoration: none;
+    color: #3c3e3f;
+	}
+  .menu--choose-type__label--title {
+    font-size: 1.6em;
+    margin: 0.5em 0 0 0;
+    line-height: 1.5em;
+  }
+  .menu--choose-type__label--addition {
+    margin: 0;
+  }
+
+  /*heading aanpassingen*/
+  
+  .heading-dashboard.h1 {
+    font-size: 2em;
+    font-weight: 300;
+    text-transform: none;
+    color: #3c3e3f;
+    border-bottom: 1px solid #979797;
+    line-height: 1.4em;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+  }
+  .heading-dashboard__switch-intermediary {
+    font-size: 0.5em;
+    letter-spacing: 0;
+    float: left;
+    width: 100%;
+  }
+
+  /*icon aanpassingen*/
+  .icon__menu {
+    margin-top: 0;
+    height: 9em;
+    width: 100%;
+    top: 1em;
+    display: none;
+  }
+  .icon__menu--choose-type.icon__menu--add-particuliere-relatie {
+    background: rgba(0, 0, 0, 0) url("particulier.png") no-repeat scroll left center;
+  }
+  .icon__menu--choose-type.icon__menu--add-zakelijk-relatie {
+    background: rgba(0, 0, 0, 0) url("zakelijk.png") no-repeat scroll left center;
+  }
+  .icon__menu--choose-type {
+    width: 6em;
+    height: 6em;
+    display: none;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 0;
+  }
+  .icon__badge {
+    background-color: #f53d3d;
+    color: white;
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+    font-size: 1em;
+    line-height: 2em;
+    top: -8px;
+    right: -8px;
+  }
+	@media only screen and (min-width: 560px) {
+    .heading-dashboard.h1 {
+      padding-right: 6em;
+    }
+    .heading-dashboard__switch-intermediary {
+      position: absolute;
+      float: none;
+      margin-left: 1em;
+      margin-top: 20px;
+      right: 1em;
+      top: 0;
+      width: auto;
+    }
+
+    .icon__menu, .icon__menu--choose-type {
+      display: block;
+    }
+    .menu--choose-type__item {
+      min-height: 6em;
+      padding-left: 5em;
+    }
+    .menu__item {
+	    flex: 0 1 calc(50% - 1em);
+      margin-bottom: 2em;
+		}
+    .menu__item:nth-child(odd) {
+      margin-right: 1em;
+    }
+    .menu__item:nth-child(even) {
+      margin-left: 1em;
+    }
+	}
+	@media only screen and (min-width: 1024px) {
+    .menu--choose-type__item {
+      flex: 0 1 calc(50% - 0.5em);
+    }
+    .menu--choose-type__item:nth-child(odd) {
+      margin-right: 0.5em;
+    }
+    .menu--choose-type__item:nth-child(even) {
+      margin-left: 0.5em;
+    }
+    .menu__item:nth-child(3n+0) {
+      flex: 0 1 calc(33.33333% - 1.33333em);
+      margin-left: 0;
+      margin-right: 1.33333em;
+    }
+    .menu__item:nth-child(3n+1) {
+      flex: 0 1 calc(33.33333% - 1.33333em);
+      margin-left: 0.66665em;
+      margin-right: 0.66665em;
+    }
+    .menu__item:nth-child(3n+2) {
+      flex: 0 1 calc(33.33333% - 1.33333em);
+      margin-left: 1.33333em;
+      margin-right: 0;
+    }
+	}
+	@media only screen and (min-width: 1280px) {
+    .menu__item:nth-child(4n+3) {
+      flex: 0 1 calc(25% - 1.5em);
+      margin-left: 0;
+      margin-right: 1.5em;
+    }
+    .menu__item:nth-child(4n+4) {
+      flex: 0 1 calc(25% - 1.5em);
+      margin-left: 0.5em;
+      margin-right: 1em;
+    }
+    .menu__item:nth-child(4n+5) {
+      flex: 0 1 calc(25% - 1.5em);
+      margin-left: 1em;
+      margin-right: 0.5em;
+    }
+    .menu__item:nth-child(4n+6) {
+      flex: 0 1 calc(25% - 1.5em);
+      margin-left: 1.5em;
+      margin-right: 0;
+    }
+
+	}
+	@media only screen and (min-width: 1600px) {
+		.menu__item:nth-child(5n+3) {
+	    flex: 0 1 calc(20% - 1.6em);
+      margin-left: 0;
+      margin-right: 1.6em;
+		}
+    .menu__item:nth-child(5n+4){
+      flex: 0 1 calc(20% - 1.6em);
+      margin-left: 0.4em;
+      margin-right: 1.2em;
+    } 
+    .menu__item:nth-child(5n+5){
+      flex: 0 1 calc(20% - 1.6em);
+      margin-left: 0.8em;
+      margin-right: 0.8em;
+    }
+    .menu__item:nth-child(5n+1){
+      flex: 0 1 calc(20% - 1.6em);
+      margin-left: 1.2em;
+      margin-right: 0.4em;
+    }
+    .menu__item:nth-child(5n+2) {
+      flex: 0 1 calc(20% - 1.6em);
+      margin-left: 1.6em;
+      margin-right: 0;
+    }
+	}
+
+ /*css voor layout change*/
+
+  .layout-page {
+    padding-left: 0;
+  }
+  .layout {
+    width: 100%;
+  }
+  .layout__top {
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 65%, rgba(255,255,255,0) 100%);
+  }
+
+  .hamburger {
+    float: left;
+    width: 4em;
+    height: 5em;
+    background-color: red;
+    text-align: center;
+  }
+  .hamburger__button {
+
+  }
+  .hamburger__menu {
+    position: absolute;
+    top: 5em;
+    left: 0.5em;
+    background-color: blue;
+  }
+  .logo {
+    width: 8em;
+    height: 5em;
+    float: left;
+    display: inline-block;
+    background-color: yellow;
+  }
+  .search {
+    width: calc(100% - 12em);
+    float: left;
+    border-bottom: none;
+    background-color: transparent;
+
+  }
+
+
+
+
+</style>
+
+
+<!-- EINDE Nieuwe CSS -->
+
+  <!-- Load JS -->
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/jquery.js?t=53"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/jquery.placeholder.js?t=53"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/modernizr.js?t=53"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/site/system/scripts/TextResource.nl-NL.js"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/soapclient.js?t=53"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/hsUtils.js?t=53"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/AdvisorService.js?t=53"></script>
+  <script type="text/javascript" src="http://adviseur.mijngoudse.nl.ontwikkel.test/js/HsWysiwygEditor.js?t=53"></script>
+
+  <script type="text/javascript">
+Sys.State.BaseSiteUrl = "/";
+Sys.State.SessionId = "6fc1b88252d9477c88be39b56abe6043";
+Sys.State.LoggedIn = false;
+Sys.State.ServiceType = 1024;
+Sys.State.CustomerType = "P";
+Sys.State.LoggedInType = 0;
+Sys.State.DisplayName = "";
+Sys.State.DisplayAanhef = "";
+Sys.State.PreviousLogin = "";
+Sys.State.HeeftAlPakket = false;
+Sys.State.ActiveDossierId = "";
+Sys.State.ActiveDossierFormId = "";
+Sys.State.Filters = {};
+Sys.State.AuthData = {};
+Sys.State.AuthData.Authorized = true;
+Sys.State.AuthData.IngelogdAls = " Test (Test TP)";
+Sys.State.AuthData.AllowAddressLookup = true;
+Sys.State.AuthData.AdvisorSessionId = "ff63924b38074ef19d12d9254f1baabf";
+Sys.State.AuthData.AllowRekeningCourantInzien = true;
+Sys.State.AuthData.ServiceTypes = { Allowed: 1024, Default: 1024 };
+Sys.State.AuthData.Sites = [{ Name: "D53E79F73F9B44B285DD0D99894785D1", Value: "hofstaete-adviseur.nl" }, { Name: "1C07D2F31317484DAAEAFEECE2231B39", Value: "mijngoudse.nl" }, { Name: "AA2CA2353E9D4D2882488AECD5A49B94", Value: "schade-inzien.mijngoudse.nl" }];
+Sys.State.AuthData.DefaultSite = { Name: "1C07D2F31317484DAAEAFEECE2231B39", Value: "mijngoudse.nl" };
+</script>
+ 
+
+</head>
+<body class="layout-page" style="">
+
+<section class="layout">
+  <section class="layout__main">
+    <section>
+  <section id="searchresultcontainer" class="layout__search-result" style="display: none;"></section>
+  <!--/ .layout__search-result -->
+
+  <section id="searchresultnoresultstemplate" style="display: none" class="layout__search-result">
+    <div class="result">
+      <p class="result__none">
+        Geen relatie gevonden die overeenkomt met de ingevoerde gegevens
+      </p>
+    </div>  
+  </section>
+  <!--/ .layout__search-result -->
+
+  <section id="searchresultitemtemplate" style="display: none" class="layout__search-result">
+    <div data-debug-searchresult-relationnumber="{#relatienummer#}" data-debug-searchresult-email="{#email#}" class="result">
+
+      <div class="result__container result__container--customer" href="javascript:void(0);" onclick="Sys.Modules.RelationSearch.Select('{#token#}', 0);">
+        <span class="icon icon--customer-type-{#accounttype#}">
+          <span class="badge badge--{#accounttype#}"></span>
+        </span>
+      </div>
+      
+      <ul class="result__container result__container--data" href="javascript:void(0)" onclick="Sys.Modules.RelationSearch.Select('{#token#}', 0);">
+        <li><h1 class="result__name-title">{#naam#}, {#plaats#}</h1></li>
+        <li><span class="result__relatienummer">{#relatienummer#}</span> {#geboortedatum#}
+        </li>
+        <li>{#email#}</li>
+      </ul>
+    
+      <ul class="result__container result__container--icons">
+        <li class="result__icon-list-item">
+          <a class="icon icon--has-polis-{#heeftpolissencssmod#}" title="Producten" href="javascript:void(0)" onclick="Sys.Modules.RelationSearch.Select('{#token#}', 1);">
+            <span class="badge badge--search-icon">
+              {#aantalpolissen#}
+            </span>
+          </a>
+        </li>
+        <li class="result__icon-list-item">
+          <a class="icon icon--has-invoice-{#heeftfactuurcssmod#}" title="Facturen" href="javascript:void(0)" onclick="Sys.Modules.RelationSearch.Select('{#token#}', 2);">
+            <span class="badge badge--search-icon">
+              {#aantalfacturen#}
+            </span></a>
+          
+        </li> 
+        <li class="result__icon-list-item">
+          <a class="icon icon--has-offer-{#heeftoffertecssmod#}" title="Offertes" href="javascript:void(0)" onclick="Sys.Modules.RelationSearch.Select('{#token#}', 3);">
+            <span class="badge badge--search-icon">
+              {#aantaloffertes#}
+            </span>
+          </a>
+        </li> 
+        <li class="result__icon-list-item">
+          <a class="icon icon--has-claim-{#heeftschadecssmod#}" title="Schades" href="javascript:void(0)" onclick="Sys.Modules.RelationSearch.Select('{#token#}', 4);">
+            <span class="badge badge--search-icon">
+              {#aantalschades#}
+            </span>
+          </a>
+        </li>                                    
+      </ul>
+    </div>
+  </section>
+  <!--/ .layout__search-result -->
+
+  <section class="layout__top">
+    <nav class="hamburger">
+      <button class="hamburger__button">Menu</button>
+      <ul class="hamburger__menu">
+        <li>service</li>
+        <li>settings</li>
+        <li>logout</li>
+      </ul>
+    </nav>
+    <div class="logo">
+      <h1 class="logo__heading">
+        <a href="/">
+          <img class="logo__heading-img" src="http://adviseur.mijngoudse.nl.ontwikkel.test/site/system/images/logo.png" alt="Test TP">
+        </a>
+      </h1>
+    </div>
+    <div class="search">
+      <form action="javascript:void(null);" method="post" class="search__form">
+
+        <div class="search__inp-container">
+          <input id="searchquery" placeholder="Zoek relatie" class="inp inp--search" type="search">
+          <button type="button" id="searchresetbutton" style="display: none;" class="btn-search-reset">x</button>
+          <button type="button" id="searchbutton" class="btn-search"></button>
+          <span id="searchqueryE" style="display:none;" class="form-inp-error form-inp-error--search-bar">
+            <p class="form-inp-error__text">
+              Voer een zoekterm in.
+            </p>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <section id="searchresultloadingtemplate" style="display: none;">  
+      <div id="searchresultloader">
+        <section class="result__loader">
+          <span class="icon icon--loader"></span>
+        </section> 
+      </div>
+    </section>
+  </section>
+  <!--/ .layout__top -->
+
+<!-- Initialize RelationSearch -->
+<script type="text/javascript">
+$(document).ready(
+  function ()
+  {
+    Sys.Modules.RelationSearch.Initialize();
+  });
+</script>
+</section>
+
+
+    <section class="layout__scroll-content">
+      <section class="layout__content layout__content--dashboard">
+        <section class="layout__main-mod">
+
+
+
+
+
+
+<!-- new michel ----------------------------
+--------------------------------------------
+--------------------------------------------
+-->
+
+
+          <h1 class="heading-dashboard h1">
+            Dashboard T.Adviseur
+            <a href="#" class="heading-dashboard__switch-intermediary">Tussenpersoon wisselen</a>
+          </h1>
+					
+          <ul class="menu">
+
+            <li class="menu--choose-type__item"> <!-- particulier -->
+              <a id="newprivatecustomerbutton" href="#">
+                <span class="icon__menu--choose-type icon__menu--add-particuliere-relatie"></span>
+                <p class="menu--choose-type__label--title">Premie <strong>Particulier</strong> berekenen</p>
+                <p class="menu--choose-type__label--addition">en direct een nieuwe relatie aanmaken</p>
+              </a>
+            </li>
+
+            <li class="menu--choose-type__item"> <!-- zakelijk -->
+              <a id="newbusinesscustomerbutton" href="#">
+                <span class="icon__menu--choose-type icon__menu--add-zakelijk-relatie"></span>
+                <p class="menu--choose-type__label--title">Premie <strong>Zakelijk</strong> berekenen</p>
+                <p class="menu--choose-type__label--addition">en direct een nieuwe relatie aanmaken</p>
+              </a>
+            </li>
+
+            <li class="menu__item">
+              <a id="savedcalculationsbutton" href="/adviseur/opgeslagen-berekeningen">
+                <span debug-relationdashboard-savedcalculationscount="true" class="icon__badge">31</span>
+                <span class="icon__menu icon__menu--opgeslagen-berekeningen">
+                </span>
+                <p class="menu__label">Opgeslagen berekeningen</p>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a id="quotationsbutton" href="/adviseur/offertes">
+                <span debug-relationdashboard-offertescount="true" class="icon__badge">29</span>
+                <span class="icon__menu icon__menu--openstaande-offertes"></span>
+                <p class="menu__label">Offertes</p>
+              </a>
+            </li>    
+            <li class="menu__item">
+              <a id="savedmutationsbutton" href="/adviseur/opgeslagen-mutaties">
+                <span debug-relationdashboard-opgeslagenmutatiescount="true" class="icon__badge">6</span>
+                <span class="icon__menu icon__menu--opgeslagen-mutaties"></span>
+                <p class="menu__label">Opgeslagen wijzigingen</p>
+              </a>
+            </li>    
+
+            <li class="menu__item">
+              <a id="savedclaimsbutton" href="/adviseur/opgeslagen-schades">
+                <span debug-relationdashboard-opgeslagenschadescount="true" class="icon__badge">2</span>
+                <span class="icon__menu icon__menu--opgeslagen-schades"></span>
+                <p class="menu__label">Opgeslagen schades</p>
+              </a>
+            </li>    
+           <li class="menu__item">
+              <a id="currentaccountviewbutton" href="#">
+                <span class="icon__menu icon__menu--rekening-courant"></span>
+                <p class="menu__label">Rekening courant</p>
+              </a>
+            </li>
+
+            <li class="menu__item">
+              <a id="savedcalculationsbutton" href="/adviseur/opgeslagen-berekeningen">
+                <span debug-relationdashboard-savedcalculationscount="true" class="icon__badge">31</span>
+                <span class="icon__menu icon__menu--opgeslagen-berekeningen"></span>
+                <p class="menu__label">Opgeslagen berekeningen</p>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a id="quotationsbutton" href="/adviseur/offertes">
+                <span debug-relationdashboard-offertescount="true" class="icon__badge">29</span>
+                <span class="icon__menu icon__menu--openstaande-offertes"></span>
+                <p class="menu__label">Offertes</p>
+              </a>
+            </li>    
+            <li class="menu__item">
+              <a id="savedmutationsbutton" href="/adviseur/opgeslagen-mutaties">
+                <span debug-relationdashboard-opgeslagenmutatiescount="true" class="icon__badge">6</span>
+                <span class="icon__menu icon__menu--opgeslagen-mutaties"></span>
+                <p class="menu__label">Opgeslagen wijzigingen</p>
+              </a>
+            </li>    
+
+            <li class="menu__item">
+              <a id="savedclaimsbutton" href="/adviseur/opgeslagen-schades">
+                <span debug-relationdashboard-opgeslagenschadescount="true" class="icon__badge">2</span>
+                <span class="icon__menu icon__menu--opgeslagen-schades"></span>
+                <p class="menu__label">Opgeslagen schades</p>
+              </a>
+            </li>    
+           <li class="menu__item">
+              <a id="currentaccountviewbutton" href="#">
+                <span class="icon__menu icon__menu--rekening-courant"></span>
+                <p class="menu__label">Rekening courant</p>
+              </a>
+            </li>
+                      
+          </ul>
+
+
+          <!-- custom dashboard tiles (advisor) -->
+          <ul class="menu">
+
+
+          </ul>
+
+          <!-- REGION adviseurnieuws_next -->
+          
+          <!-- end REGION adviseurnieuws_next -->
+		  
+        <!-- Initialize AdvisorDashboard -->
+        <script type="text/javascript">
+			Sys.Global.Initialized.Add(Sys.Modules.AdvisorDashboard.Initialize);
+        </script>
+        </section>
+
+        <div class="layout__scrolldown"></div>
+      </section>
+      <!--/ .layout__content -->
+    </section>
+    <!--/ layout__scroll-content -->      
+  </section>
+  <!--/ .layout__main -->
+
+  <section id="informationpanelright" class="layout__aside">
+    <ul class="client__menu">
+  <!-- berekening -->
+  <li id="calculationlightcontainer" class="client__menu-item">
+    
+    <a id="calculationlightbutton" class="icon icon--menu-panel-calc-closed" title="Berekening" href="javascript:void(0);">
+      <span id="calculationlightbadge" class="badge badge--client-menu">0</span>
+    </a>
+    
+    <!-- berekening uitklap -->
+    <div id="calculationlight" class="menu-panel" style="display: none;">
+      
+      
+      
+
+      
+      
+      
+
+      
+  
+      
+
+      
+      <ul class="btn-control">
+        <li class="btn-control__item">
+          <button type="button" id="btntobigcalculation" class="btn" onclick="location.href='/berekening'">
+            Overzicht
+          </button>
+        </li>
+        <li class="btn-control__item">
+          <button type="button" id="btnfinalizerequest" class=" btn-disabled" disabled="disabled" onclick="Sys.Modules.Calculation.GoToRequestFinalizationForm(0, '/rekenen/8ae76335a0c945ab9b4bf7aad69d7a14');">
+            <span>
+              Aanvragen
+            </span> 
+            <span class="btn__text btn__text--icon"></span>
+          </button>
+        </li>
+      </ul>
+
+            
+      
+
+            
+
+    </div>
+
+    <!-- Initialize CalculationLight -->
+    <script type="text/javascript">
+    $(document).ready(function ()
+    {
+      Sys.Modules.CalculationLight.Initialize();
+    });
+    </script>
+    
+  </li>
+
+  <!-- opgeslagen berekeningen -->
+  <li id="savedcalculationlightcontainer" class="client__menu-item">
+    
+    <a id="savedcalculationlightbutton" class="icon icon--menu-panel-calc-saved-closed" title="Opgeslagen berekeningen" href="javascript:void(0);">
+      <span class="badge badge--client-menu">0</span>
+    </a>
+
+    <!-- uitklappen opgeslagen berekeningen -->
+    <div id="savedcalculationlight" class="menu-panel" style="display: none;">     
+      
+
+      <ul class="btn-control">
+        <li class="btn-control__item">
+          <button type="button" class="btn" onclick="location.href='/opgeslagen-berekeningen'">Opgeslagen berekeningen</button>
+        </li>
+      </ul>
+
+    </div>   
+
+    <!-- Initialize opgeslagen berekeningen -->
+    <script type="text/javascript">
+    $(document).ready(function ()
+    {
+      Sys.Modules.SavedCalculationLight.Initialize();
+    });
+    </script>
+    
+  </li>
+
+  <!-- offertes -->
+  <li id="quotationlightcontainer" class="client__menu-item">
+  
+    <a id="quotationlightbutton" class="icon icon--menu-panel-quotation-closed" title="Offertes" href="javascript:void(0);">
+      <span class="badge badge--client-menu">0</span>
+    </a>
+
+    <!-- uitklappen offertes -->
+    <div id="quotationlight" class="menu-panel" style="display: none;">     
+      
+
+      <ul class="btn-control">
+        <li class="btn-control__item">
+          <button type="button" class="btn" onclick="location.href='/offertes'">Offertes</button>
+        </li>
+      </ul>
+    </div>   
+
+    <!-- Initialize offertes -->
+    <script type="text/javascript">
+    $(document).ready(
+    function ()
+    {
+      Sys.Modules.QuotationLight.Initialize();
+    });
+    </script>
+    
+  </li>
+</ul>
+
+
+    <section class="layout__aside-content">
+    <section class="client">
+  
+  
+  
+  <div class="client__container">
+    <div class="client__photo">
+      <a href="/relatie-dashboard" class="icon icon--customer-type-particulier">
+        <span class="badge badge--particulier"></span>
+      </a>    
+    </div>
+
+    <h1 id="customerinformation_namecontainer" class="heading-aside h1">
+      <a href="/relatie-dashboard">
+        <span id="customerinformation_initials">
+          
+        </span>
+        <span>
+          
+        </span> 
+        <span id="customerinformation_lastnameprefixes">
+          
+        </span> 
+        <span id="customerinformation_lastname">
+          
+        </span> 
+        <span id="customerinformation_age" data-formatting=" ({#value#})">
+          
+        </span> 
+        <span id="customerinformation_gender" data-formatting=" ({#value#})" class="client__gender">
+          
+        </span>
+      </a>
+
+      <!-- Service type -->
+      
+    </h1>
+
+    <ul class="client__list">
+      <li id="customerinformation_birthdaycontainer" class="client__list-item">
+        <span id="customerinformation_birthday">
+          
+        </span>
+      </li>
+      <li id="customerinformation_emailcontainer" class="client__list-item">
+        <span id="customerinformation_email">
+          
+        </span>
+      </li>
+      <li id="customerinformation_phonecontainer" class="client__list-item">
+        <span id="customerinformation_phone">
+          
+        </span>
+      </li>  
+      <li id="customerinformation_cellphonecontainer" class="client__list-item">
+        <span id="customerinformation_cellphone">
+          
+        </span>
+      </li>
+      <li id="customerinformation_address1container" class="client__list-item">
+        <span id="customerinformation_street">
+          
+        </span>
+        <span id="customerinformation_streetnumber">
+          
+        </span>
+        <span id="customerinformation_streetnumberadd">
+          
+        </span>
+      </li>
+      <li id="customerinformation_address2container" class="client__list-item">
+        <span id="customerinformation_zipcode">
+          
+        </span>
+        <span id="customerinformation_city">
+          
+        </span>
+      </li>  
+    </ul>
+
+    <dl class="client__family">
+      <!-- Partner -->
+      
+
+      <!-- 1st child -->
+      
+
+      <!-- 2nd child -->
+      
+
+      <!-- 3rd child -->
+      
+
+      <!-- 4th child -->
+      
+
+      <!-- 5th child -->
+      
+    </dl>
+
+    <ul class="client__family-m">
+      <li class="client__family-m-item">
+        <span data-debug-partner="sex" class="icon icon--partner-sex"></span>
+      </li>
+      <li class="client__family-m-item">
+        <span data-debug-kind="count" class="icon icon--children-count"></span>
+      </li>
+    </ul>
+  </div>
+  <!--/ .client__container -->  
+  
+
+  
+
+</section>
+<!--/ .client -->
+
+<button id="informationpanelrightbutton" class="btn-toggle-aside btn-toggle-aside--closed"></button>
+  
+<!-- Initialize InformationPanelRight -->
+<script type="text/javascript">
+$(document).ready(
+  function()
+  {
+    Sys.Modules.InformationPanelRight.Initialize();
+  });
+</script>
+
+
+    <section class="recent-clients">
+      <h3 class="heading-aside h3">
+        Recente relaties
+      </h3>
+
+      <ul id="recentrelationscontainer" class="recent-clients__list">
+        <li class="recent-clients__client">
+          <a href="javascript: Sys.Modules.RelationSearch.Select('iz4941Bxp4Usj/vTLABnMlMMRCjYqlD9EMaI2lw5CxFPW5/1y+D73RfSY4f7+JXC')" class="recent-clients__link">
+            <span class="icon icon--relatie-particulier">
+              <span class="icon__badge icon__badge--recent-clients-particulier"></span>
+            </span>
+            <div class="recent-clients__info">
+              <div class="recent-clients__name">K. Woonhuus</div>
+              <div class="recent-clients__city">TUITJENHORN</div>
+            </div>
+            </a>
+        </li>
+      
+        <li class="recent-clients__client">
+          <a href="javascript: Sys.Modules.RelationSearch.Select('iHOumzbp5/Ik8LLIXCjjmO71pKzwe+Q+jw84oy0ppFd1dR3qvRokTq+HqJYudc4v')" class="recent-clients__link">
+            <span class="icon icon--relatie-particulier">
+              <span class="icon__badge icon__badge--recent-clients-particulier"></span>
+            </span>
+            <div class="recent-clients__info">
+              <div class="recent-clients__name">I.N. Boedel</div>
+              <div class="recent-clients__city">BOEKEL</div>
+            </div>
+            </a>
+        </li>
+      
+        <li class="recent-clients__client">
+          <a href="javascript: Sys.Modules.RelationSearch.Select('llorAw6/dKMu00gwHPd1VeOAeiiR6LqbxP633a60quUtsxTr6ncOYJAmjo/YEKXE')" class="recent-clients__link">
+            <span class="icon icon--relatie-particulier">
+              <span class="icon__badge icon__badge--recent-clients-particulier"></span>
+            </span>
+            <div class="recent-clients__info">
+              <div class="recent-clients__name">I.N. Boedel</div>
+              <div class="recent-clients__city">AMERSFOORT</div>
+            </div>
+            </a>
+        </li>
+      
+        <li class="recent-clients__client">
+          <a href="javascript: Sys.Modules.RelationSearch.Select('6WcYTKOnFS9/rlh67dWfcIBXGi/1PfgCij5tesnuh+QSPiup5DnWdI7JMLVwv2gr')" class="recent-clients__link">
+            <span class="icon icon--relatie-particulier">
+              <span class="icon__badge icon__badge--recent-clients-particulier"></span>
+            </span>
+            <div class="recent-clients__info">
+              <div class="recent-clients__name">A.V.P. AVP</div>
+              <div class="recent-clients__city">GOUDA</div>
+            </div>
+            </a>
+        </li>
+      </ul>
+
+      <div class="scroll-buttons">
+        <div class="scroll-buttons__container">
+          <button id="recentrelationsprevbutton" class="scroll-buttons__button scroll-buttons__button--disabled" type="button" disabled="disabled">
+            <span class="scroll-buttons__arrow scroll-buttons__arrow--up"></span>
+          </button>
+          <button id="recentrelationsnextbutton" class="scroll-buttons__button" type="button">
+            <span class="scroll-buttons__arrow scroll-buttons__arrow--down"></span>
+          </button>
+        </div>
+      </div>
+
+      <ul id="recentrelationsitemtemplate" style="display: none">
+        <li class="recent-clients__client">
+          <a href="javascript: {#activationaction#}" class="recent-clients__link">
+            <span class="icon icon--relatie-{#accounttype#}">
+              <span class="icon__badge icon__badge--recent-clients-{#accounttype#}"></span>
+            </span>
+            <div class="recent-clients__info">
+              <div class="recent-clients__name">{#naam#}</div>
+              <div class="recent-clients__city">{#plaats#}</div>
+            </div>
+            </a>
+        </li>
+      </ul>
+      
+      <section id="recentrelationsnoitemstemplate" style="display: none" class="msg">
+        <p class="recent-clients__no-clients">Er zijn nog geen recente relaties.</p>
+      </section>
+       
+      <section id="recentrelationsloadertemplate" style="display: none;">
+        <div class="popup__animation-load-client"></div>
+        <div class="popup__fadeout"></div>
+        <p class="popup__text">de relatie wordt ingeladen</p>
+      </section>    
+      
+      <!-- Initialize RecentRelations -->      
+      <script type="text/javascript">
+		Sys.Global.Initialized.Add(Sys.Modules.RecentRelations.Initialize);
+      </script>
+      </section>
+
+    </section>
+    <!--/ .layout__aside-content -->    
+  </section>
+  <!--/ .layout__aside -->
+
+</section>
+<!--/ .layout -->
+
+
+
+<!-- Popup -->
+<section id="modalpopup" style="display: none;" class="overlay">
+  <section id="modalpopupscrollcontainer" class="overlay__container">
+  <section id="modalpopupcontent"></section>
+  </section>
+</section>
+
+<!-- Popup De geopende opgeslagen berekening is gewijzigd -->
+<section id="savedcalculationlosechangespopup" style="display: none">
+  <div class="popup popup--alert">
+    <h1 class="popup__heading">
+      De berekening is niet opgeslagen
+    </h1>
+
+    <p class="popup__text">
+      Wilt u de berekening opslaan, kies dan voor 'Terug naar berekening' en vervolgens voor 'Opslaan'. Als u kiest voor 'Doorgaan' wordt deze berekening niet opgeslagen.
+    </p>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Doorgaan
+        </button>
+      </li>
+      <li class="btn-control__item">
+        <button type="button" data-button-type="cancel" class="btn-cancel btn-cancel--popup">
+          Terug naar berekening
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup De geopende opgeslagen mutatie is gewijzigd -->
+<section id="savedmutationlosechangespopup" style="display: none">
+  <div class="popup popup--alert">
+    <h1 class="popup__heading">
+      De wijziging is niet opgeslagen
+    </h1>
+    <p class="popup__text">
+      Wilt u de wijziging opslaan, kies dan voor 'Terug naar de wijziging' en vervolgens voor 'Opslaan'. Als u kiest voor 'Doorgaan' wordt de wijziging niet opgeslagen.
+    </p>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Doorgaan
+        </button>
+      </li>
+      <li class="btn-control__item">
+        <button type="button" data-button-type="cancel" class="btn-cancel btn-cancel--popup">
+          Terug naar de wijziging
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup De geopende opgeslagen mutatie is gewijzigd -->
+<section id="savedclaimlosechangespopup" style="display: none">
+  <div class="popup popup--alert">
+    <h1 class="popup__heading">
+      De schade is niet opgeslagen
+    </h1>
+
+    <p class="popup__text">
+      Wilt u de schade opslaan, kies dan voor 'Terug naar de schade' en vervolgens voor 'Opslaan'. Als u kiest voor 'Doorgaan' wordt de schade niet opgeslagen.
+    </p>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Doorgaan
+        </button>
+      </li>
+      <li class="btn-control__item">
+        <button type="button" data-button-type="cancel" class="btn-cancel btn-cancel--popup">
+          Terug naar de schade
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup De geopende offerte is gewijzigd -->
+<section id="quotationlosechangespopup" style="display: none">
+  <div class="popup popup--alert">
+    <h1 class="popup__heading">
+      Offerte is gewijzigd
+    </h1>
+
+    <p class="popup__text">
+      De geopende offerte is gewijzigd. Als u doorgaat zullen de wijzigingen verloren gaan.
+    </p>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Doorgaan
+        </button>
+      </li>
+      <li class="btn-control__item">
+        <button type="button" data-button-type="cancel" class="btn-cancel btn-cancel--popup">
+          Terug naar berekening
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup De berekening is gewijzigd -->
+<section id="customerlosestatepopup" style="display: none">
+  <div class="popup popup--alert">
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+
+    <p class="popup__text">
+      {#text#}
+    </p>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Doorgaan
+        </button>
+      </li>
+      <li class="btn-control__item">
+        <button type="button" data-button-type="cancel" class="btn-cancel btn-cancel--popup">
+          {#canceltext#}
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup na versturen van formulier en bij pakket.acc. -->
+<section id="formaftersubmitpopup" style="display: none">
+  <div class="popup popup--alert">
+    <div class="popup__custom-content">
+      {#content#}
+    </div>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Sluiten
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup preview product -->
+<section id="productpreviewpopup" style="display: none">
+  <div class="popup popup--content">
+    <div class="popup__custom-content">
+      {#content#}
+    </div>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Sluiten
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<!-- Popup product information -->
+<section id="productinformationpopup" style="display: none">
+  <div class="popup popup--content">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+
+    <div class="popup__custom-content">
+      {#content#}
+    </div>
+  </div>  
+</section>
+
+<!-- Popup product conditions -->
+<section id="productconditionspopup" style="display: none">
+  <div class="popup popup--content">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+
+    <div class="popup__body">
+      {#content#}
+    </div>
+  </div>  
+</section>
+
+<section id="productconditiontemplate" style="display: none">
+  <a href="{#url#}" target="_blank" class="popup__dowload-item">
+    <span class="popup__dowload-img popup__dowload-img-pdf"></span>
+    {#omschrijving#}
+  </a>
+</section>
+
+<!-- Popup archive -->
+<section id="archivepopup" style="display: none">
+  <div class="popup popup--content">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+
+    <div class="popup__body">
+      {#content#}
+    </div>
+  </div>  
+</section>
+
+<section id="archiveitemtemplate" style="display: none">
+  <a href="javascript:void(0);" data-id="{#id#}" data-button-type="download-archive" class="popup__dowload-item">
+    <span class="popup__dowload-img popup__dowload-img-{#extension#}"></span>
+    {#omschrijving#} ({#date#})
+  </a>
+</section>
+
+<!-- Popup premieverloop AOV -->
+<section id="premieverloopaovpopup" style="display: none">
+  <div class="popup popup--content">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+    <div class="popup__custom-content">
+      {#content#}
+    </div>
+  </div>  
+</section>
+
+<!-- Popup invoice files -->
+<section id="invoicefilespopup" style="display: none">
+  <div class="popup popup--content">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+
+    <div class="popup__body">
+      {#content#}
+    </div>
+  </div>  
+</section>
+
+<!-- Popup taak aanmaken -->
+<section id="taskaddpopup" style="display: none">
+  <div class="popup popup--task">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+    <h1 class="popup__heading">Nieuwe taak</h1>
+    <p id="taskaddpopup_name" class="popup__heading-sub"></p>
+
+  <label id="taskaddpopup_subjectLbl" class="label">Onderwerp</label>
+  <input id="taskaddpopup_subject" class="inp" data-required="true">
+  <span id="taskaddpopup_subjectE" class="form-inp-error" style="display: none">
+    <p class="form-inp-error__text"></p>
+  </span>
+  
+  <label id="taskaddpopup_dateLbl" class="label">Datum</label>
+  <input id="taskaddpopup_date" class="inp" data-type="futuredate" data-required="true" placeholder="dd-mm-jjjj" type="date">
+  <span id="taskaddpopup_dateE" class="form-inp-error" style="display: none">
+    <p class="form-inp-error__text"></p>
+  </span>
+
+  <label id="taskaddpopup_typeLbl" class="label">Soort taak</label>
+  <select id="taskaddpopup_type" class="select" data-required="true">
+  </select>
+  <span id="taskaddpopup_typeE" class="form-inp-error" style="display: none">
+    <p class="form-inp-error__text"></p>
+  </span>
+  
+  <label id="taskaddpopup_commentLbl" class="label">Opmerking</label>
+  <textarea id="taskaddpopup_comment" class="textarea textarea--multiline" data-required="true"></textarea>
+  <span id="taskaddpopup_commentE" class="form-inp-error" style="display: none">
+    <p class="form-inp-error__text"></p>
+  </span>
+  
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button id="taskaddpopup_save" type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          TAAK AANMAKEN
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Popup taak openen / wijzigen -->
+<section id="taskopeneditpopup" style="display: none">
+  <div class="popup popup--task">
+    <button type="button" data-button-type="close" class="popup__btn-close">
+      ×
+    </button>
+    <h1 id="taskopeneditpopup_title" class="popup__heading"></h1>
+  	<a id="taskopeneditpopup_navigateto" href="javascript:void(0);">
+  		<p id="taskopeneditpopup_name" class="popup__heading-sub"></p>
+  	</a>
+
+    <label id="taskopeneditpopup_dateLbl" class="label">Datum</label>
+    <input id="taskopeneditpopup_date" class="inp" data-type="date" data-required="true" placeholder="dd-mm-jjjj" type="date">
+    <span id="taskopeneditpopup_dateE" class="form-inp-error" style="display: none">
+      <p class="form-inp-error__text"></p>
+    </span>
+
+    <label id="taskopeneditpopup_commentLbl" class="label">Opmerking</label>
+    <textarea id="taskopeneditpopup_comment" class="textarea textarea--multiline" data-required="true"></textarea>
+    <span id="taskopeneditpopup_commentE" class="form-inp-error" style="display: none">
+      <p class="form-inp-error__text"></p>
+    </span>
+    
+    {#content#}
+
+  	<section id="taskopeneditpopup_container_save">
+  		<label class="label-checkbox label-checkbox--popup-warning">
+  		  <input id="taskopeneditpopup_close" name="taskopeneditpopup_closed" class="inp inp--checkbox" type="checkbox">   
+  			<span id="taskopeneditpopup_closeLbl">
+  			Markeer deze taak als afgerond
+  			</span>
+  		</label>
+
+  		<ul class="btn-control btn-control--popup">
+  		  <li class="btn-control__item">
+  			<button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+  			  WIJZIGINGEN OPSLAAN
+  			</button>
+  		  </li>
+  		  <li id="taskopeneditpopup_saveandcreate_container" class="btn-control__item" style="display:none;">
+  			<button id="taskopeneditpopup_saveandcreate" type="button" class="btn-action btn-action--link-popup">
+  			  OPSLAAN + NIEUWE TAAK
+  			</button>
+  		  </li>
+  		</ul>
+  	</section>
+  	<section id="taskopeneditpopup_container_close" style="displey:none">
+  		<ul class="btn-control btn-control--popup">
+  		  <li class="btn-control__item">
+  			<button type="button" data-button-type="close" class="btn-action btn-action--popup">
+  			  SLUITEN
+  			</button>
+  		  </li>
+  		</ul>
+  	</section>
+  </div>  
+</section>
+
+<!-- Popup taak openen / wijzigen : Afspraak -->
+<section id="taskappointmenttemplate" style="display: none">
+  <div class="popup-line">
+    <div class="column-container">
+      <div class="column-container__column" data-task-execute="">
+        <label class="label">
+          Onderwerp
+        </label>
+        <ul>
+          <li>
+            <div>
+              <a href="javascript:void(0);" onclick="Sys.Modules.Tasks.OpenEditTask.Execute('{#id#}');">{#onderwerp#}</a>
+            </div>        
+          </li>
+        </ul>
+      </div>
+      <div class="column-container__column">  
+        <label class="label">
+          Adresgegevens
+        </label>
+        <ul>
+          <li>{#straat#}</li>
+          <li>{#postcode#} {#plaats#}</li>
+        </ul>
+      </div>    
+    </div>
+  </div>
+</section>
+
+<!-- Popup taak openen / wijzigen : Bellen -->
+<section id="taskcalltemplate" style="display: none">
+  <div class="popup-line">
+    <div class="column-container">
+      <div class="column-container__column" data-task-execute="">
+        <label class="label">
+          Onderwerp
+        </label>
+        <ul>
+          <li>
+            <div>
+              <a href="javascript:void(0);" onclick="Sys.Modules.Tasks.OpenEditTask.Execute('{#id#}');">{#onderwerp#}</a>
+            </div>  
+          </li>
+        </ul>
+      </div>
+      <div class="column-container__column">  
+        <label class="label">
+          Telefoon
+        </label>
+        <ul>
+          <li>{#telefoon#}</li>
+          <li>{#mobiel#}</li>
+        </ul>
+      </div>    
+    </div>
+  </div>
+</section>
+
+<!-- Popup taak openen / wijzigen : Check -->
+<section id="taskchecktemplate" style="display: none">
+  <div class="popup-line">
+    <div class="column-container">
+      <div class="column-container__column" data-task-execute="">
+        <label class="label">
+          Onderwerp
+        </label>
+        <ul>
+          <li>
+            <div>
+              <a href="javascript:void(0);" onclick="Sys.Modules.Tasks.OpenEditTask.Execute('{#id#}');">{#onderwerp#}</a>
+            </div>    
+          </li>
+        </ul>
+      </div>
+      <div class="column-container__column">  
+        <label class="label">
+          Telefoon
+        </label>
+        <ul>
+          <li>{#telefoon#}</li>
+          <li>{#mobiel#}</li>
+        </ul>
+      </div>    
+    </div>
+  </div>
+</section>
+
+<!-- Popup taak openen / wijzigen : E-mail -->
+<section id="taskemailtemplate" style="display: none">
+  <div class="popup-line">
+    <div class="column-container">
+      <div class="column-container__column" data-task-execute="">
+        <label class="label">
+          Onderwerp
+        </label>
+        <ul>
+          <li>
+            <div>
+              <a href="javascript:void(0);" onclick="Sys.Modules.Tasks.OpenEditTask.Execute('{#id#}');">{#onderwerp#}</a>
+            </div>    
+          </li>
+        </ul>
+      </div>
+      <div class="column-container__column">
+        <label class="label">
+          Email
+        </label>
+        <ul>
+          <li>{#email#}</li>
+        </ul>
+      </div>    
+    </div>
+  </div>
+</section>
+
+<div id="invoicefiletemplate" style="display: none">
+  <a href="{#url#}" target="_blank" class="popup__dowload-item">
+    <span class="popup__dowload-img popup__dowload-img-pdf"></span>
+    {#omschrijving#}
+  </a>
+</div>
+
+<section id="generalmessagepopup" style="display: none">
+  <div class="popup popup--alert">
+    <div class="popup__custom-content">
+      {#message#}
+    </div>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+          Sluiten
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+<section id="generalconfirmpopup" style="display: none">
+  <div class="popup popup--alert">
+    <button type="button" data-button-type="close" class="popup__btn-close" style="display:none">
+      ×
+    </button>
+
+    <h1 class="popup__heading">
+      {#title#}
+    </h1>
+
+    <p class="popup__text">
+      {#message#}
+    </p>
+
+    <ul class="btn-control btn-control--popup">
+      <li class="btn-control__item">
+        <button type="button" data-button-type="accept" class="btn-action btn-action--popup">
+            {#acceptcaption#}
+        </button>
+      </li>
+      <li class="btn-control__item">
+        <button type="button" data-button-type="cancel" class="btn-cancel btn-cancel--popup">
+            {#cancelcaption#}
+        </button>
+      </li>
+    </ul>
+  </div>  
+</section>
+
+
+<!-- Loader -->
+<section id="modalloader" style="display: none;" class="overlay">
+  <section class="overlay__container">
+  <section id="modalloadercontent" class="loader"></section>
+  <button id="modalloaderclosebutton" class="loader__btn" style="">Sluiten</button>
+  </section>
+</section>
+
+<!-- Loader De relatie wordt ingeladen -->
+<section id="searchresultloadertemplate" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De relatie wordt geladen</p>
+</section>
+
+<!-- Loader Premies herberekenen - Open calculation -->
+<section id="opensavedcalculationloader" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De berekening wordt geopend</p>
+</section> 
+
+<!-- Loader Premies herberekenen - Reopen calculation -->
+<section id="reopensavedcalculationloader" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De berekening wordt geopend</p>
+</section> 
+
+<!-- Loader ter beoordeling list 'fabrieksmedewerker' -->
+<section id="openforreviewloader" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De berekening wordt geopend</p>
+</section> 
+
+<!-- Loader mutation loading -->
+<section id="opensavedmutationloader" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De mutatie wordt geopend</p>
+</section> 
+
+<!-- Loader Premies herberekenen -->
+<section id="openquotationloader" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De berekening wordt geopend</p>
+</section> 
+
+<!-- Loader Even geduld a.u.b. -->
+<section id="submitformloadertemplate" style="display: none;">
+  <div class="loader__animation-load-client"></div>
+  <p class="loader__text">De gegevens worden verwerkt</p>
+</section> 
+
+<iframe id="downloadframe" style="display:none"></iframe>
+<script type="text/javascript">
+	Sys.Global.Initialized.Add(Sys.Modules.Download.Initialize);
+</script>
+
+
+
+
+</body></html>

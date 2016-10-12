@@ -1,0 +1,25 @@
+{
+  "name": "hs-mijnpagina",
+  "description": "Klantensite Hofstaete Klanten",
+  "main": "index.js",
+  "authors": [
+    "Michel van der Wereld"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/michelvdwereld/hs-mijnpagina",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "^2.2.12",
+    "breakpoint-sass": "^2.7.0",
+    "gel-sass-tools": "^1.1.1"
+  },
+  "devDependencies": {
+    "sass-mq": "^3.2.9"
+  }
+}
