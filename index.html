@@ -23,37 +23,34 @@
   <link rel="stylesheet" href="http://adviseur.mijngoudse.nl.ontwikkel.test/site/system/styles/theme.css?t=53">
 
 
-<!-- Nieuwe CSS -->
-
-<link rel="stylesheet" href="../Square-Grid-master/demo/css/normalize.css">
-<link rel="stylesheet" href="../Square-Grid-master/dist/squaregrid.css">
-<link rel="stylesheet" href="../Square-Grid-master/demo/css/main.css">
-
 <style type="text/css">
-	.layout__content.layout__content--dashboard {
-		max-width: 1600px;
-		padding-left: 1em;
-		padding-right: 1em;
-	}
+.layout__content.layout__content--dashboard {
+    max-width: 1600px;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
-	.menu {
+  .menu {
     /*http://codepen.io/anon/pen/YyLqVB?editors=110*/
     align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-	}
-	.menu__item {
-		flex: 0 1 100%;
+  }
+  .menu__item {
+    flex: 0 1 100%;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 1em;
     padding: 0;
     height: auto;
-	}
-  .menu__item:hover:before {
-      opacity:1;
   }
-	.menu--choose-type__item {
+  .menu__item:hover::before {
+    height: auto;
+    content: "";
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .menu--choose-type__item {
     flex: 0 1 100%;
     align-self: auto;
     margin-left: 0;
@@ -64,22 +61,22 @@
     border-bottom: 1px solid #979797;
     font-weight: 300;
     position: relative;
-	}
+  }
   .menu--choose-type__item a {
     text-decoration: none;
     color: #3c3e3f;
   }
-	.menu__label {
+  .menu__label {
     padding: 1em;
     font-size: 15px;
     font-weight: 400;
-	}
-	.menu--choose-type__label {
+  }
+  .menu--choose-type__label {
     margin: 0;
     padding-top: 1em;
     text-decoration: none;
     color: #3c3e3f;
-	}
+  }
   .menu--choose-type__label--title {
     font-size: 1.6em;
     margin: 0.5em 0 0 0;
@@ -148,7 +145,7 @@
     top: -8px;
     right: -8px;
   }
-	@media only screen and (min-width: 560px) {
+  @media only screen and (min-width: 560px) {
     .heading-dashboard.h1 {
       padding-right: 6em;
     }
@@ -170,19 +167,21 @@
       padding-left: 5em;
     }
     .menu__item {
-	    flex: 0 1 calc(50% - 1em);
+      flex: 0 1 auto;
+      width: calc(50% - 1em);
       margin-bottom: 2em;
-		}
+    }
     .menu__item:nth-child(odd) {
       margin-right: 1em;
     }
     .menu__item:nth-child(even) {
       margin-left: 1em;
     }
-	}
-	@media only screen and (min-width: 1024px) {
+  }
+  @media only screen and (min-width: 1024px) {
     .menu--choose-type__item {
-      flex: 0 1 calc(50% - 0.5em);
+      flex: 0 1 auto;
+      width: calc(50% - 0.5em);
     }
     .menu--choose-type__item:nth-child(odd) {
       margin-right: 0.5em;
@@ -191,71 +190,84 @@
       margin-left: 0.5em;
     }
     .menu__item:nth-child(3n+0) {
-      flex: 0 1 calc(33.33333% - 1.33333em);
+      flex: 0 1 auto;
+      width: calc(33.33333% - 1.33333em);
       margin-left: 0;
       margin-right: 1.33333em;
     }
     .menu__item:nth-child(3n+1) {
-      flex: 0 1 calc(33.33333% - 1.33333em);
+      flex: 0 1 auto;
+      width: calc(33.33333% - 1.33333em);
       margin-left: 0.66665em;
       margin-right: 0.66665em;
     }
     .menu__item:nth-child(3n+2) {
-      flex: 0 1 calc(33.33333% - 1.33333em);
+      flex: 0 1 auto;
+      width: calc(33.33333% - 1.33333em);
       margin-left: 1.33333em;
       margin-right: 0;
     }
-	}
-	@media only screen and (min-width: 1280px) {
+  }
+  @media only screen and (min-width: 1280px) {
     .menu__item:nth-child(4n+3) {
-      flex: 0 1 calc(25% - 1.5em);
+      flex: 0 1 auto;
+      width: calc(25% - 1.5em);
       margin-left: 0;
       margin-right: 1.5em;
     }
     .menu__item:nth-child(4n+4) {
-      flex: 0 1 calc(25% - 1.5em);
+      flex: 0 1 auto;
+      width: calc(25% - 1.5em);
       margin-left: 0.5em;
       margin-right: 1em;
     }
     .menu__item:nth-child(4n+5) {
-      flex: 0 1 calc(25% - 1.5em);
+      flex: 0 1 auto;
+      width: calc(25% - 1.5em);
       margin-left: 1em;
       margin-right: 0.5em;
     }
     .menu__item:nth-child(4n+6) {
-      flex: 0 1 calc(25% - 1.5em);
+      flex: 0 1 auto;
+      width: calc(25% - 1.5em);
       margin-left: 1.5em;
       margin-right: 0;
     }
 
-	}
-	@media only screen and (min-width: 1600px) {
-		.menu__item:nth-child(5n+3) {
-	    flex: 0 1 calc(20% - 1.6em);
+  }
+  @media only screen and (min-width: 1600px) {
+    .menu__item:nth-child(5n+3) {
+      flex: 0 1 auto;
+      width: calc(20% - 1.6em);
       margin-left: 0;
       margin-right: 1.6em;
-		}
+    }
     .menu__item:nth-child(5n+4){
-      flex: 0 1 calc(20% - 1.6em);
+      flex: 0 1 auto;
+      width: calc(20% - 1.6em);
       margin-left: 0.4em;
       margin-right: 1.2em;
     } 
     .menu__item:nth-child(5n+5){
-      flex: 0 1 calc(20% - 1.6em);
+      flex: 0 1 auto;
+      width: calc(20% - 1.6em);
       margin-left: 0.8em;
       margin-right: 0.8em;
     }
     .menu__item:nth-child(5n+1){
-      flex: 0 1 calc(20% - 1.6em);
+      flex: 0 1 auto;
+      width: calc(20% - 1.6em);
       margin-left: 1.2em;
       margin-right: 0.4em;
     }
     .menu__item:nth-child(5n+2) {
-      flex: 0 1 calc(20% - 1.6em);
+      flex: 0 1 auto;
+      width: calc(20% - 1.6em);
       margin-left: 1.6em;
       margin-right: 0;
     }
-	}
+  }
+
 
  /*css voor layout change*/
 
@@ -265,43 +277,92 @@
   .layout {
     width: 100%;
   }
+  .layout__aside {
+    border-left: 0;
+  }
   .layout__top {
     background: linear-gradient(to bottom, rgba(255,255,255,1) 65%, rgba(255,255,255,0) 100%);
+    padding-left: 1em;
+    padding-right: 1em;
   }
-
-  .hamburger {
+  .layout__top__right {
+    width: calc(100% - 8em);
     float: left;
-    width: 4em;
-    height: 5em;
-    background-color: red;
-    text-align: center;
   }
-  .hamburger__button {
 
-  }
-  .hamburger__menu {
-    position: absolute;
-    top: 5em;
-    left: 0.5em;
-    background-color: blue;
-  }
   .logo {
-    width: 8em;
-    height: 5em;
+    width: 8rem;
+    height: 5rem;
     float: left;
     display: inline-block;
-    background-color: yellow;
-  }
-  .search {
-    width: calc(100% - 12em);
-    float: left;
     border-bottom: none;
     background-color: transparent;
-
   }
 
+  .home {
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    background-color: yellow;
+  }
+  .tasks {
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    background-color: #ff00ff;
+  }
 
+  /* search */
+  .search {
+    width: 5rem;
+    margin-right: 1rem;
+    height: 5rem;
+    float: right;
+    background: rgba(0, 0, 0, 0) url("http://adviseur.mijngoudse.nl.ontwikkel.test/hs/system/adviseursite/images/btn--search.png") no-repeat scroll center right;
+    border-bottom: 0;
+  }
+  .search.expand {
+    width: calc(100% - 12rem);
+    border-bottom: 1px solid #cfcfcf;
+  }
 
+  .search__overlay-click {
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    z-index: 300;
+    cursor: pointer;
+  }
+  .search__text {
+    padding: 0;
+    width: 0;
+    height: 5rem;
+    float: right;
+    z-index: 100;
+    background-color: transparent;
+    font-size: 2em;
+    font-weight: 300;
+  }
+  .search.expand .search__text {
+    width: calc(100% - 5rem);
+    
+  }
+  .expand.animation .search__text {
+    transition: width .8s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  }
+  .search__submit {
+    padding: 0;
+    width: 5rem;
+    height: 5rem;
+    float: right;
+    z-index: 200;
+
+    /* Hide the text. */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: transparent;
+  }
 
 </style>
 
@@ -413,14 +474,20 @@ Sys.State.AuthData.DefaultSite = { Name: "1C07D2F31317484DAAEAFEECE2231B39", Val
   <!--/ .layout__search-result -->
 
   <section class="layout__top">
-    <nav class="hamburger">
-      <button class="hamburger__button">Menu</button>
-      <ul class="hamburger__menu">
-        <li>service</li>
-        <li>settings</li>
-        <li>logout</li>
-      </ul>
-    </nav>
+    <div >
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+        $(this).toggleClass('open');
+      });
+    });
+    </script>
+
     <div class="logo">
       <h1 class="logo__heading">
         <a href="/">
@@ -428,21 +495,54 @@ Sys.State.AuthData.DefaultSite = { Name: "1C07D2F31317484DAAEAFEECE2231B39", Val
         </a>
       </h1>
     </div>
-    <div class="search">
-      <form action="javascript:void(null);" method="post" class="search__form">
+      
+    <section class="layout__top__right">
+      <div class="home">home</div>
+      <div class="tasks">tasks</div>
 
-        <div class="search__inp-container">
-          <input id="searchquery" placeholder="Zoek relatie" class="inp inp--search" type="search">
-          <button type="button" id="searchresetbutton" style="display: none;" class="btn-search-reset">x</button>
-          <button type="button" id="searchbutton" class="btn-search"></button>
-          <span id="searchqueryE" style="display:none;" class="form-inp-error form-inp-error--search-bar">
-            <p class="form-inp-error__text">
-              Voer een zoekterm in.
-            </p>
-          </span>
-        </div>
+      <form action="javascript:void(null);" method="post"  class="search">
+        <script type="text/javascript">
+          $(function() {
+
+            // create function add class 'expand' to
+            var addClassExpandTo = function($addTo) {
+              $($addTo).addClass('expand');
+            };
+
+            // create function add class 'animation' to
+            var addClassAnimationTo = function($addTo) {
+              $($addTo).addClass('animation');
+            };
+
+            // create function to check if this element is empty, then add class 'expand' to a element with class 'search'
+            var checkandHideOverlay = function($this) {
+              $($this, function() {
+                if($($this).val()){
+                  addClassExpandTo('.search');
+                  $('.search__overlay-click').hide();
+                }
+              });
+            };
+
+            // call function checkandHideOverlay to 'search__text'
+            checkandHideOverlay('.search__text');
+
+            // remove overlay on searchfield and then add expand to text field
+            $('.search__overlay-click').click(function(){
+              $(this).hide();
+              addClassExpandTo('.search');
+              addClassAnimationTo('.search');
+              $('.search__text').focus();
+            });
+
+          });
+        </script>
+        <div class="search__overlay-click"></div>
+        <button type="button" id="searchresetbutton" style="display: none;" class="btn-search-reset">x</button>
+        <button type="button" id="searchbutton" class="search__submit">Zoeken</button>
+        <input id="searchquery" placeholder="Zoek relatie" class="search__text" type="search">
       </form>
-    </div>
+    </section>
 
     <section id="searchresultloadingtemplate" style="display: none;">  
       <div id="searchresultloader">
